@@ -38,7 +38,7 @@ public void createPoll (PollRequest request, StreamObserver<PollResponse> respon
 SecureRandom random = new SecureRandom();
 String rannum = new BigInteger(50, random).toString(36);
 
-logger.info("New Poll id created is::: " + rannum);
+logger.info("New Poll id created is= " + rannum);
 
 PollResponse reponse = PollResponse.newBuilder().setId(rannum).build();
 

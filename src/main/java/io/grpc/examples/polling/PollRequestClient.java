@@ -8,6 +8,7 @@ import io.grpc.stub.StreamObserver;
 import io.grpc.transport.netty.NegotiationType;
 import io.grpc.transport.netty.NettyChannelBuilder;
 import java.util.logging.Logger;
+
 import java.util.*;
 import java.util.Arrays;
 
@@ -38,11 +39,11 @@ String startedAt = "2015-02-23T13:00:00.000Z";
 String expiredAt = "2015-02-24T13:00:00.000Z";
 String[] choice = { "Android","iPhone" };
 
-logger.info("Moderator Id is:::::: " + moderatorId );
-logger.info("Question description is:::::: " + question );
-logger.info("Poll start at:::::: " + startedAt );
-logger.info("Poll expire at:::::: " + expiredAt );
-logger.info("Choice of Poll:::::: " +  Arrays.toString(choice) );
+logger.info("Creating a new poll for moderator " + moderatorId);
+logger.info("Question description= " + question );
+logger.info("Poll start at=" + startedAt );
+logger.info("Poll expire at=" + expiredAt );
+logger.info("Choice of Poll=" +  Arrays.toString(choice) );
 
 PollRequestClient.PollRequestService cl = client.new PollRequestService ();
 
@@ -61,7 +62,7 @@ PollRequest request = PollRequest.newBuilder().setQuestion(question).setStartedA
 
 PollResponse response = blockingStub.createPoll(request);
 
-logger.info("New Poll id returned from server is:::::: " + response.getId());
+logger.info("Created a new poll with id = " + response.getId());
 
 }
 
